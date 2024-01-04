@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import UserCreationForm, BlogForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .models import Blog
 
 # Create your views here.
@@ -35,3 +35,7 @@ def home(request):
         obj.save()
         return redirect(reverse('home'))
     return render(request, 'home.html', {'user':user, 'form':form, 'blogs':blogs})
+
+def logout_user(request):
+    logout(request)
+    return redirect(reverse('login'))

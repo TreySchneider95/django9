@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'django9.urls'
 
+AUTHENTICATION_BACKENDS = ['blog.models.EmailBackend']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
